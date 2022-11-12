@@ -34,7 +34,7 @@ DEBUG = False
 
 # add host(website domain) for production in string in allowed hosts. can also add multiple host with comma separated
 # ALLOWED_HOSTS = ['abc.com', 'abc1.com']
-ALLOWED_HOSTS = ["127.0.0.1", "asin-django1.herokuapp.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "go-nz.herokuapp.com"]
 
 
 # Application definition
