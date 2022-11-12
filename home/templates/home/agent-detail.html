@@ -1,0 +1,27 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block title %}Agent-Detail{% endblock title %}
+{% block content %}
+{% comment %} <h1>Home Page</h1>
+{% if person.name %}
+<p>Hey {{person.name}}</p>
+
+<p>{{person.name}} is {{person.age}} years old.</p>
+{% endif %} {% endcomment %}
+
+<h2 class="m-4">Agent Details</h2>
+<div class="card mx-4" style="width: 20rem;">
+  
+  {% comment %} <img src="..." class="card-img-top" alt="..."> {% endcomment %}
+  <div class="card-body">
+    <h4 class="card-title">{{agent.name}}</h4>
+    <h5 class="card-title">{{agent.position}}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item p-3">Email: {{agent.email}}</li>
+    <li class="list-group-item p-3">Phone: {{agent.phone}}</li>
+    <li class="list-group-item p-3">Department: {{agent.department.name}}</li>
+    <li class="list-group-item p-3">Joined on: {{agent.date_created}} </li>
+  </ul>
+</div>
+{% endblock content %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Create Tour{% endblock  %}
+{% block content %}
+
+<h2 class="m-4">Create Tour</h2>
+ <form class="mx-4" method="post" action="">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="name" class="form-label"> Tour Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        placeholder="Name"
+        required
+      />
+    </div>
+
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Price (From)</label>
+      <input
+        type="text"
+        class="form-control"
+        id="price"
+        name="price"
+        placeholder="Price"
+      />
+    </div>
+    
+
+    <div class="mb-3">
+      <label for="desc" class="form-label">Description</label>
+      <textarea class="form-control" id="desc" name="desc" rows="12" required></textarea>
+    </div>
+    <div class="mb-3">
+      {% comment %} <label for="filename" class="form-label">Upload Image</label> {% endcomment %}
+        <input type="file" id="myFile" name="filename">
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+
+{% endblock content %}

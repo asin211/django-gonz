@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Tours{% endblock title %} {% block content %}
+<div class="container py-2">
+  <h2 class="text-center mt-2 mb-4">Holiday Packages</h2>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    {% for x in tours %}
+    <div class="col">
+      <div class="card shadow-sm">
+        <!-- <svg
+          class="bd-placeholder-img card-img-top"
+          width="100%"
+          height="225"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Placeholder: Thumbnail"
+          preserveAspectRatio="xMidYMid slice"
+          focusable="false"
+        >
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#55595c"></rect>
+          <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+        </svg> -->
+        <img class="bd-placeholder-img card-img-top" width="100%" height="300" style="object-fit: cover;" src="{{ x.thumbnail.url }}" alt="">
+
+        <div class="card-body">
+          <h4>{{x.tourName}}</h4>
+          <h6>Listed By - {{x.employee.name}}</h6>
+          <p class="card-text">
+            {{x.desc|slice:":150"}}
+          </p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <!-- <button type="button" class="btn btn-sm btn-outline-secondary">
+                View
+              </button> -->
+              <a class="btn btn-sm btn-outline-secondary" href="{% url 'tour-detail' x.id %}">View</a>
+              <!-- <button type="button" class="btn btn-sm btn-outline-secondary">
+                Edit
+              </button> -->
+            </div>
+            <small class="text-muted">From ${{x.price}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock content %}

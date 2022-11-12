@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Agents{% endblock title %} {% block content %}
+<!-- Travel Agents Card -->
+<div class="mx-3">
+  <h2 class="my-4">Travel Agents</h2>
+  <div class="list-group my-4">
+    {% for x in agents %}
+    <a
+      href="{% url 'agent-detail' x.id %}"
+      class="list-group-item list-group-item-action p-3"
+    >
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{x.name}}</h5>
+        <small class="text-muted">Joining Date: {{x.date_created}}</small>
+      </div>
+      <p class="mb-1">Position: {{x.position}}</p>
+      <!-- <small class="text-muted">Joining Date: {{x.date_created}}</small> -->
+    </a>
+    <br>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock content %}
