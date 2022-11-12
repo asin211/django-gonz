@@ -130,9 +130,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # *****************Added Manually*****************
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+# use this root for development only, give give errors for production
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
 
 # for updating custom User model using  AbstractUser for updating fields
 # AUTH_USER_MODEL = 'home.User'
@@ -146,8 +147,8 @@ MEDIA_URL = '/images/'
 MEDIA_ROOT = BASE_DIR / "static/images"
 
 
-
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# use this root for production
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, "static"),
