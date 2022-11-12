@@ -3,7 +3,7 @@
 <div class="container-fluid my-0 px-0 mb-3">
   <img
     {% comment %} src="{% static 'images/city.jpg' %}" {% endcomment %}
-    src="{{tour.thumbnail.url}}"
+    src="{% static tour.thumbnail.url %}"
     height="550"
     class="d-block w-100"
     alt="..."

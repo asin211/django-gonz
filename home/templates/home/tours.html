@@ -19,7 +19,7 @@
           <rect width="100%" height="100%" fill="#55595c"></rect>
           <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
         </svg> -->
-        <img class="bd-placeholder-img card-img-top" width="100%" height="300" style="object-fit: cover;" src="{{ x.thumbnail.url }}" alt="">
+        <img class="bd-placeholder-img card-img-top" width="100%" height="300" style="object-fit: cover;" src="{% static x.thumbnail.url %}" alt="">
 
         <div class="card-body">
           <h4>{{x.tourName}}</h4>
