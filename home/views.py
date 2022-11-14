@@ -159,20 +159,38 @@ def registerUser(request):
     # return render(request, 'home/register.html')
 
 
+# @login_required(login_url='login')
+# def addTour(request):
+#     # write logic here to save in database
+#     if request.method == 'POST':
+#         name = request.POST.get('name')
+#         price = request.POST.get('price')
+#         desc = request.POST.get('desc')
+#         filename = request.POST.get('filename')
+#         context = TourData(tourName=name, price=price,
+#                           desc=desc, date_created=datetime.today(), thumbnail=filename)
+#         context.save()
+#         messages.success(request, ' Your Tour has been created!')
+
+#     return render(request, 'home/create-tour.html')
+
+
 @login_required(login_url='login')
 def addTour(request):
     # write logic here to save in database
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        price = request.POST.get('price')
-        desc = request.POST.get('desc')
-        filename = request.POST.get('filename')
-        context = TourData(tourName=name, price=price,
-                          desc=desc, date_created=datetime.today(), thumbnail=filename)
-        context.save()
-        messages.success(request, ' Your Tour has been created!')
+    if request.user.is_superuser:
+        if request.method == 'POST':
+            name = request.POST.get('name')
+            price = request.POST.get('price')
+            desc = request.POST.get('desc')
+            filename = request.POST.get('filename')
+            context = TourData(tourName=name, price=price,
+                            desc=desc, date_created=datetime.today(), thumbnail=filename)
+            context.save()
+            messages.success(request, ' Your Tour has been created!')
 
-    return render(request, 'home/create-tour.html')
+        return render(request, 'home/create-tour.html')
+    return render(request, 'home/home.html')
 
 
 # def updateTour(request, pk):
