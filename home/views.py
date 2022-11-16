@@ -179,15 +179,17 @@ def registerUser(request):
 def addTour(request):
     # write logic here to save in database
     if request.user.is_superuser:
-        if request.method == 'POST':
+        if request.method == 'POST' and request.FILES['filename']:
             name = request.POST.get('name')
             price = request.POST.get('price')
             desc = request.POST.get('desc')
-            filename = request.POST.get('filename')
+            image = request.FILES.get("filename")
+            employee = Employee.objects.get(id=request.user.id)
             context = TourData(tourName=name, price=price,
-                            desc=desc, date_created=datetime.today(), thumbnail=filename)
+                               desc=desc, thumbnail=image, employee=employee)
             context.save()
             messages.success(request, ' Your Tour has been created!')
+            return redirect('home')
 
         return render(request, 'home/create-tour.html')
     return render(request, 'home/home.html')

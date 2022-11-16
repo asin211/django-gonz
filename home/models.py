@@ -88,7 +88,7 @@ class Employee(models.Model):
 class TourData(models.Model):
     tourName = models.CharField(max_length=200)
     desc = models.CharField(max_length=200)
-    price = models.FloatField()
+    price = models.CharField(max_length=10)
     employee = models.ForeignKey(Employee, null=True, on_delete= models.SET_NULL)
 
     # employee = models.ForeignKey(Employee, on_delete=models.CASCADE)

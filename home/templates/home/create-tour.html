@@ -3,7 +3,7 @@
 {% block content %}
 
 <h2 class="m-4">Create Tour</h2>
- <form class="mx-4" method="post" action="">
+ <form class="mx-4" method="post" action="" enctype="multipart/form-data" >
     {% csrf_token %}
     <div class="mb-3">
       <label for="name" class="form-label"> Tour Name</label>
@@ -26,6 +26,7 @@
         id="price"
         name="price"
         placeholder="Price"
+        required
       />
     </div>
     
